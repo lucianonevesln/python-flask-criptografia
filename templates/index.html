@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>Criptografia de Senha</h2><br>
+
+    <form action = "{{ url_for('codificar') }}" method = "POST">
+        <label for="">Criptografar: </label>
+        <input type="text" placeholder="senha a ser criptografada" name="id_codificar" id="id_codificar"><br><br>
+        <input type="submit" name="retorno" value="Criptografar Senha">
+    </form><br>
+
+    <h3>{{ id_codificar_html }}</h3><br>
+
+    <form action = "{{ url_for('decodificar') }}" method = "POST">
+        <label for="">Descriptografar: </label>
+        <textarea placeholder="senha a ser descriptografada" name="id_decodificar" id="id_decodificar" cols="55" rows="1"></textarea><br><br>
+        <input type="submit" name="retorno" value="Descriptografar Senha">
+    </form><br>
+
+    {% if id_decodificar_html %}
+
+        <h3>{{ id_decodificar_html }}</h3><br>
+
+        <a href="http://localhost:5000"><button>Voltar</button></a>
+
+    {% endif %}
+
+</body>
+</html>
